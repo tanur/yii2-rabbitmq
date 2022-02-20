@@ -10,11 +10,11 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 Either run
 ```
-php composer.phar require --prefer-dist mikemadisonweb/yii2-rabbitmq
+php composer.phar require --prefer-dist tanur/yii2-rabbitmq
 ```
 or add
 ```json
-"mikemadisonweb/yii2-rabbitmq": "^1.0"
+"tanur/yii2-rabbitmq": "^1.0"
 ```
 to the require section of your `composer.json` file.
 
