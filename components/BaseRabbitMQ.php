@@ -183,6 +183,13 @@ abstract class BaseRabbitMQ
         }
     }
 
+	public function deleteQueue()
+	{
+		if ($this->queueOptions['name']) {
+			$this->queueDelete($this->queueOptions['name']);
+		}
+	}
+
     /**
      * disables the automatic SetupFabric when using a consumer or producer
      */
@@ -253,6 +260,14 @@ abstract class BaseRabbitMQ
             $this->getChannel()->queue_bind($queue, $exchange, $routing_key);
         }
     }
+
+	protected function queueDelete($queue)
+	{
+		// queue binding is not permitted on the default exchange
+		if ('' !== $queue) {
+			$this->getChannel()->queue_delete($queue);
+		}
+	}
 
     /**
      * Print message to console

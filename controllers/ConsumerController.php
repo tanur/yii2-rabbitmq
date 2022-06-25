@@ -122,6 +122,22 @@ class ConsumerController extends Controller
         }
     }
 
+	/**
+	 * Setup RabbitMQ exchanges and queues based on configuration
+	 */
+	public function actionDeleteAll()
+	{
+		$definitions = \Yii::$container->getDefinitions();
+		foreach ($definitions as $definition) {
+			if (is_callable($definition)) {
+				$instance = $definition();
+				if ($instance instanceof BaseRabbitMQ) {
+					$instance->deleteQueue();
+				}
+			}
+		}
+	}
+
     /**
      * Set options passed by user
      */

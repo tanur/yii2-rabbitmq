@@ -168,6 +168,7 @@ Extension provides several console commands:
 - **rabbitmq-consumer/single** - Run consumer(one instance per queue)
 - **rabbitmq-consumer/multiple** - Run consumer(one instance per multiple queues)
 - **rabbitmq-consumer/setup-fabric** - Setup RabbitMQ exchanges and queues based on configuration
+- **rabbitmq-consumer/delete-all** - Delete all queues based on configuration
 - **rabbitmq-producer/publish** - Pubish messages from STDIN to queue
 
 The most important here is single and multiple consumer commands as it start consumer processes based on consumer and multipleConsumer config respectively.
